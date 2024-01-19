@@ -2,7 +2,16 @@
 //  HangmanApp.swift
 //  Hangman
 //
-//  Created by Martí Espinosa Farran on 16/1/24.
+//  Created by Martí Espinosa Farran on 13/1/24.
 //
 
-import Foundation
+import SwiftUI
+
+@main
+struct HangmanApp: App {
+    var body: some Scene {
+        WindowGroup {
+            MenuView()
+        }
+    }
+}

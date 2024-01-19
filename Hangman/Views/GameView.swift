@@ -1,21 +1,19 @@
-//
-//  Game.swift
-//  Hangman
-//
-//  Created by Martí Espinosa Farran on 14/1/24.
-//
-
 import SwiftUI
 
 struct GameView: View {
     @State private var selectedDifficulty: String
+    @State private var palabraOculta: String = ""
+    @State private var randomWord: String = ""
+    @State private var isGameOver: Bool = false
     @State private var showCongratsMessage: Bool = false
-    @State private var hasWon: Bool = false
-    
+    @State private var attempts: Int = 0
+    @State private var fallos: Int = 0
+    @State private var isButtonEnabled: [[Bool]] = Array(repeating: Array(repeating: true, count: 6), count: 4)
+
     init(selectedDifficulty: String) {
         self._selectedDifficulty = State(initialValue: selectedDifficulty)
     }
-    
+
     var body: some View {
         VStack(alignment: .leading) {
             Text("Game")
@@ -24,48 +22,26 @@ struct GameView: View {
 
             let abcArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "Ñ", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 
-            let palabras3Letras = ["sol", "pan", "luz", "mar", "uva", "rio", "oro", "ley", "voz", "sal"]
-            let palabras4Letras = ["casa", "dado", "nube", "pato", "vino", "moto", "azul", "rojo", "flor", "gris"]
-            let palabras5Letras = ["valor", "libro", "cielo", "reloj", "tigre", "pilar", "verde", "yegua", "nieve", "casco"]
-
-            var randomWord = ""
-            var palabraOculta = generarPalabraOculta(selectedDifficulty)
-            let random = Int.random(in: 0..<10)
-            var attempts = 0
-            var fallos = 0
-
-            Image(systemName: "photo")
-                .resizable()
-                .scaledToFill()
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .edgesIgnoringSafeArea(.all)
-
             VStack {
                 Text(palabraOculta)
                     .font(.system(size: 65))
                     .padding(.bottom, 30)
 
-                Image(systemName: "hangman\(fallos)")
+                Image("hangman\(fallos+1)")
                     .resizable()
                     .frame(width: 200, height: 200)
                     .scaledToFit()
 
-                let buttonColor = Color(.sRGB, red: 0.15, green: 0.15, blue: 0.15, opacity: 1.0)
-                
                 // CREACION DE LOS BOTONES (TECLAS)
-                var isGameOver = false
-                var showCongratsMessage = false
-
                 ForEach(0..<4) { i in
                     HStack {
                         ForEach(0..<6) { j in
                             let index = j + (i * 6)
                             if index < abcArray.count {
                                 let letra = abcArray[index]
-                                @State var isButtonEnabled = true
 
                                 Button(action: {
-                                    if isButtonEnabled && !isGameOver {
+                                    if isButtonEnabled[i][j] && !isGameOver {
                                         attempts += 1
                                         let letraEnPalabra = letraEnPalabra(randomWord, letra)
                                         if letraEnPalabra {
@@ -83,7 +59,7 @@ struct GameView: View {
                                         }
 
                                         // Deshabilitar el botón después de hacer clic
-                                        isButtonEnabled = false
+                                        isButtonEnabled[i][j] = false
                                     }
                                 }) {
                                     Text(letra)
@@ -91,7 +67,7 @@ struct GameView: View {
                                         .foregroundColor(Color(.lightGray))
                                 }
                                 .buttonStyle(PlainButtonStyle())
-                                .disabled(!isButtonEnabled)
+                                .disabled(!isButtonEnabled[i][j])
 
                                 if j < 5 {
                                     Spacer(minLength: 12)
@@ -104,10 +80,8 @@ struct GameView: View {
 
                 // Fin de partida
                 if isGameOver {
-                    
+                    // Puedes realizar acciones específicas cuando el juego termina
                 }
-            
-
 
                 Text("INTENTOS: \(attempts)")
                     .font(.system(size: 24))
@@ -115,26 +89,38 @@ struct GameView: View {
             }
             .padding()
         }
+        .onAppear {
+            palabraOculta = generarPalabraOculta(selectedDifficulty, randomWord: &randomWord)
+        }
     }
 }
 
-func generarPalabraOculta(_ selectedDifficulty: String) -> String {
+func generarPalabraOculta(_ selectedDifficulty: String, randomWord: inout String) -> String {
+    var palabras: [String] = []
+
     switch selectedDifficulty {
-    case "FÁCIL":
-        return "_ _ _"
-    case "NORMAL":
-        return "_ _ _ _"
-    case "DIFÍCIL":
-        return "_ _ _ _ _"
+    case "Fácil":
+        palabras = ["sol", "pan", "luz", "mar", "uva", "rio", "oro", "ley", "voz", "sal"]
+    case "Intermedia":
+        palabras = ["casa", "dado", "nube", "pato", "vino", "moto", "azul", "rojo", "flor", "gris"]
+    case "Difícil":
+        palabras = ["valor", "libro", "cielo", "reloj", "tigre", "pilar", "verde", "yegua", "nieve", "casco"]
     default:
         return ""
     }
+
+    guard let palabraRandom = palabras.randomElement() else {
+        return ""
+    }
+
+    // Almacena la palabra aleatoria en randomWord
+    randomWord = palabraRandom
+
+    // Retorna la palabra oculta con guiones bajos y espacios
+    return String(repeating: "_ ", count: palabraRandom.count - 1) + "_"
 }
 
 func letraEnPalabra(_ palabraRandom: String, _ letra: String) -> Bool {
-    print(palabraRandom)
-    print(letra)
-    print(palabraRandom.contains(letra.lowercased()))
     return palabraRandom.contains(letra.lowercased())
 }
 
@@ -148,8 +134,5 @@ func ponerLetras(_ palabra: String, _ palabraOculta: String, _ letra: String) ->
             nuevaPalabraOculta += String(palabraOculta[index])
         }
     }
-    print("palabra: \(palabra)")
-    print("letra: \(letra)")
-    print("palabraOculta actualizada: \(nuevaPalabraOculta)")
     return nuevaPalabraOculta
 }

@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		41BA1B602B52C7B1009C3800 /* HangmanApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BA1B5F2B52C7B1009C3800 /* HangmanApp.swift */; };
-		41BA1B622B52C7B1009C3800 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BA1B612B52C7B1009C3800 /* ContentView.swift */; };
+		4195038D2B57172D0007E7FF /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4195038C2B57172D0007E7FF /* Launch.storyboard */; };
+		4195038F2B572B280007E7FF /* HangmanApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4195038E2B572B280007E7FF /* HangmanApp.swift */; };
+		41BA1B622B52C7B1009C3800 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BA1B612B52C7B1009C3800 /* MenuView.swift */; };
 		41BA1B642B52C7B2009C3800 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41BA1B632B52C7B2009C3800 /* Assets.xcassets */; };
-		41BA1B672B52C7B2009C3800 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41BA1B662B52C7B2009C3800 /* Preview Assets.xcassets */; };
 		41BA1B712B52C7B3009C3800 /* HangmanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BA1B702B52C7B3009C3800 /* HangmanTests.swift */; };
 		41BA1B7B2B52C7B3009C3800 /* HangmanUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BA1B7A2B52C7B3009C3800 /* HangmanUITests.swift */; };
 		41BA1B7D2B52C7B3009C3800 /* HangmanUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BA1B7C2B52C7B3009C3800 /* HangmanUITestsLaunchTests.swift */; };
+		41BA1B8C2B540434009C3800 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41BA1B8B2B540434009C3800 /* GameView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,16 +35,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4195038C2B57172D0007E7FF /* Launch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
+		4195038E2B572B280007E7FF /* HangmanApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangmanApp.swift; sourceTree = "<group>"; };
 		41BA1B5C2B52C7B1009C3800 /* Hangman.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hangman.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		41BA1B5F2B52C7B1009C3800 /* HangmanApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangmanApp.swift; sourceTree = "<group>"; };
-		41BA1B612B52C7B1009C3800 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		41BA1B612B52C7B1009C3800 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		41BA1B632B52C7B2009C3800 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		41BA1B662B52C7B2009C3800 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		41BA1B6C2B52C7B3009C3800 /* HangmanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HangmanTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		41BA1B702B52C7B3009C3800 /* HangmanTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangmanTests.swift; sourceTree = "<group>"; };
 		41BA1B762B52C7B3009C3800 /* HangmanUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HangmanUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		41BA1B7A2B52C7B3009C3800 /* HangmanUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangmanUITests.swift; sourceTree = "<group>"; };
 		41BA1B7C2B52C7B3009C3800 /* HangmanUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangmanUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		41BA1B8B2B540434009C3800 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		419503852B5709980007E7FF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4195038C2B57172D0007E7FF /* Launch.storyboard */,
+				41BA1B612B52C7B1009C3800 /* MenuView.swift */,
+				41BA1B8B2B540434009C3800 /* GameView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		419503892B5709E20007E7FF /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				4195038E2B572B280007E7FF /* HangmanApp.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		41BA1B532B52C7B1009C3800 = {
 			isa = PBXGroup;
 			children = (
@@ -94,20 +114,11 @@
 		41BA1B5E2B52C7B1009C3800 /* Hangman */ = {
 			isa = PBXGroup;
 			children = (
-				41BA1B5F2B52C7B1009C3800 /* HangmanApp.swift */,
-				41BA1B612B52C7B1009C3800 /* ContentView.swift */,
+				419503892B5709E20007E7FF /* Data */,
+				419503852B5709980007E7FF /* Views */,
 				41BA1B632B52C7B2009C3800 /* Assets.xcassets */,
-				41BA1B652B52C7B2009C3800 /* Preview Content */,
 			);
 			path = Hangman;
-			sourceTree = "<group>";
-		};
-		41BA1B652B52C7B2009C3800 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				41BA1B662B52C7B2009C3800 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		41BA1B6F2B52C7B3009C3800 /* HangmanTests */ = {
@@ -231,8 +242,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41BA1B672B52C7B2009C3800 /* Preview Assets.xcassets in Resources */,
 				41BA1B642B52C7B2009C3800 /* Assets.xcassets in Resources */,
+				4195038D2B57172D0007E7FF /* Launch.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,8 +268,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41BA1B622B52C7B1009C3800 /* ContentView.swift in Sources */,
-				41BA1B602B52C7B1009C3800 /* HangmanApp.swift in Sources */,
+				41BA1B622B52C7B1009C3800 /* MenuView.swift in Sources */,
+				41BA1B8C2B540434009C3800 /* GameView.swift in Sources */,
+				4195038F2B572B280007E7FF /* HangmanApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,6 +439,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = Launch.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -455,6 +468,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = Launch.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
