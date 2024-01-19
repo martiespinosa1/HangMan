@@ -64,7 +64,10 @@ struct GameView: View {
                                 }) {
                                     Text(letra)
                                         .font(.system(size: 15))
-                                        .foregroundColor(Color(.lightGray))
+                                        .foregroundColor(Color(.white))
+                                        .padding()
+                                        .background(Color(.lightGray))
+                                        .cornerRadius(8)
                                 }
                                 .buttonStyle(PlainButtonStyle())
                                 .disabled(!isButtonEnabled[i][j])
